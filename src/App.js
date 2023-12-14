@@ -8,12 +8,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-      <Route exact
-    path="/"
-    element={<Navigate to="/excelerator"/>}
-  />
-        <Route path="/excelerator" element={<Navbar />}>
-        <Route path="/excelerator/search/:id" element={<Search />} />
+        <Route path="/excelerator" exact element={<Navbar />}>
+        <Route path="/excelerator/search/:id" exact element={<Search />} />
         <Route path="/excelerator/recommendedPackage" element={<RecommendedPackage />} />
 
         </Route>
