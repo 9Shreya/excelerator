@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route ,Navigate} from "react-router-dom";
+import {Redirect} from 'react-router';
+import Navbar from "./Navbar";
+import Search from "./Search";
+import RecommendedPackage from "./RecommendedPackage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+      <Route exact
+    path="/"
+    element={<Navigate to="/excelerator"/>}
+  />
+        <Route path="/excelerator" element={<Navbar />}>
+        <Route path="/excelerator/search/:id" element={<Search />} />
+        <Route path="/excelerator/recommendedPackage" element={<RecommendedPackage />} />
+
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
+
 }
 
 export default App;
